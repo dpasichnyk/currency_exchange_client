@@ -1,10 +1,10 @@
 import React from 'react';
+import { inject } from "mobx-react";
 
 import { Row, Col } from "react-bootstrap";
 
 import Chart from "./Chart";
 import Converter from "./Converter";
-import {inject} from "mobx-react";
 
 let Content = inject('commonStore')(
     class Content extends React.Component {

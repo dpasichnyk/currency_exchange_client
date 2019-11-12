@@ -1,5 +1,5 @@
 import { observable, action, computed, decorate } from 'mobx';
-import { groupBy, map, zipObject, debounce, filter } from 'lodash';
+import { groupBy, map, zipObject, debounce, filter, mapValues } from 'lodash';
 
 import agent from '../agent';
 
@@ -22,6 +22,26 @@ class CommonStore {
 
     get groupedRatesHistories() {
         let values = filter(this.ratesHistories, { fromCurrency: this.convertFrom, toCurrency: this.convertTo });
+
+        // Fallback to reversed rates.
+        if (values.length === 0) {
+
+            values = filter(this.ratesHistories, { fromCurrency: this.convertTo, toCurrency: this.convertFrom });
+
+            values = map(values, (v) => {
+                let item = {};
+
+                let [date, from, to, rate] = [v.date, v.fromCurrency, v.toCurrency, v.rate];
+
+                item.date = date;
+                item.fromCurrency = to;
+                item.toCurrency = from;
+                item.rate = rate;
+
+                return item
+            })
+        }
+
         return map(groupBy(values, 'toCurrency'), (value, key) => { return { name: key, data: zipObject(map(value, 'date'), map(value, 'rate')) }})
     };
 
