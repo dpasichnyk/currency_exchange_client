@@ -3,18 +3,36 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@babel/runtime": "^7.7.2",
+    "bootstrap": "^4.3.1",
+    "chart.js": "^2.9.2",
+    "lodash": "^4.17.15",
+    "mobx": "^5.15.0",
+    "mobx-react": "^6.1.4",
     "react": "^16.11.0",
+    "react-bootstrap": "^1.0.0-beta.14",
+    "react-chartkick": "^0.4.0",
     "react-dom": "^16.11.0",
-    "react-scripts": "3.2.0"
+    "react-scripts": "3.2.0",
+    "superagent": "^5.1.0",
+    "superagent-promise": "^1.1.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "PORT=3001 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
+  },
+  "babel": {
+    "plugins": [
+      "@babel/plugin-proposal-decorators"
+    ],
+    "presets": [
+      "react-app"
+    ]
   },
   "browserslist": {
     "production": [
@@ -27,5 +45,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-decorators": "^7.7.0"
   }
 }
