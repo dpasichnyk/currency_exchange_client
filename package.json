@@ -6,7 +6,7 @@
     "@babel/runtime": "^7.7.2",
     "bootstrap": "^4.3.1",
     "chart.js": "^2.9.2",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "mobx": "^5.15.0",
     "mobx-react": "^6.1.4",
     "react": "^16.11.0",
