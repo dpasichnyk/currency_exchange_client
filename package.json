@@ -5,7 +5,7 @@
   "dependencies": {
     "@babel/runtime": "^7.7.2",
     "bootstrap": "^4.3.1",
-    "chart.js": "^2.9.2",
+    "chart.js": "^2.9.4",
     "lodash": "^4.17.15",
     "mobx": "^5.15.0",
     "mobx-react": "^6.1.4",
